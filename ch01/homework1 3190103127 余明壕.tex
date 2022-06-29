@@ -1,0 +1,169 @@
+\documentclass{ctexart}
+\usepackage{amsmath, amsthm}
+\pagestyle{plain}
+\title{作业一: 罗必达法则的叙述与证明}
+\author{余明壕\\统计学 3190103127}
+
+\begin{document}
+\newtheorem{theorem}{定理}
+
+\maketitle
+在建立求导法则和求导公式的过程中, 极限的理论和一些具体的极限起决定性的作用. 而有了求导理论和求导公式之后, 又可以利用它解决极限理论中某些不定式的极限问题, 而这些不定式的求值可通过罗必达(L'Hopital)法则进行求得. 
+\section{问题描述}
+\begin{theorem}\label{theorem1}
+    设函数$f(x)$和$g(x)$在$a$点的某一去心临域$U_0(a, \delta)$上可导, 而且满足：
+    \begin{align}
+        \label{condition1. 1}
+        &\lim\limits_{x\rightarrow a}f(x)=\lim\limits_{x\rightarrow a}g(x)=0;\\ 
+        \label{condition1. 2}
+        &g^{'}(x)\not=0, \forall x\in U_0(a, \delta);\\ 
+        \label{condition1. 3}
+        &\lim\limits_{x\rightarrow a}\frac{f^{'}(x)}{g^{'}(x)}=l\quad \text{($l$为有限数或$\pm\infty$)}
+    \end{align}
+    则有
+    \begin{equation}\label{conclusion1}
+        \lim_{x\rightarrow a}\frac{f(x)}{g(x)}=\lim_{x\rightarrow a}\frac{f^{'}(x)}{g^{'}(x)}=l.
+    \end{equation}
+\end{theorem}
+\begin{theorem}\label{theorem2}
+    设函数$f(x)$和$g(x)$在$U=\{x:|x|>a>0\}$上可导, 而且满足：
+    \begin{align}
+        \label{condition2. 1}
+        &\lim\limits_{x\rightarrow \infty}f(x)=\lim\limits_{x\rightarrow \infty}g(x)=0;\\ 
+        \label{condition2. 2}
+        &g^{'}(x)\not=0, \forall x\in U;\\ 
+        \label{condition2. 3}
+        &\lim\limits_{x\rightarrow \infty}\frac{f^{'}(x)}{g^{'}(x)}=l\quad \text{($l$为有限数或$\pm\infty$)}
+    \end{align}
+    则有
+    \begin{equation}\label{conclusion2}
+        \lim_{x\rightarrow \infty}\frac{f(x)}{g(x)}=\lim_{x\rightarrow \infty}\frac{f^{'}(x)}{g^{'}(x)}=l.
+    \end{equation}
+\end{theorem}
+\begin{theorem}\label{theorem3}
+    设函数$f(x)$和$g(x)$在$a$点的某一去心临域$U_0(a, \delta_0)(\delta_0>0)$上可导, 而且满足：
+    \begin{align}
+        \label{condition3. 1}
+        &\lim\limits_{x\rightarrow a}g(x)=\infty;\\ 
+        \label{condition3. 2}
+        &g^{'}(x)\not=0, \forall x\in U_0(a, \delta_0);\\ 
+        \label{condition3. 3}
+        &\lim\limits_{x\rightarrow a}\frac{f^{'}(x)}{g^{'}(x)}=l\quad \text{($l$为有限数或$\pm\infty$)}
+    \end{align}
+    则有
+    \begin{equation}\label{conclusion3}
+        \lim_{x\rightarrow a}\frac{f(x)}{g(x)}=\lim_{x\rightarrow a}\frac{f^{'}(x)}{g^{'}(x)}=l.
+    \end{equation}
+\end{theorem}
+\begin{theorem}\label{theorem4}
+    设函数$f(x)$和$g(x)$在$U=\{x:|x|>a>0\}$上可导, 而且满足：
+    \begin{align}
+        \label{condition4. 1}
+        &\lim\limits_{x\rightarrow \infty}g(x)=\infty;\\ 
+        \label{condition4. 2}
+        &g^{'}(x)\not=0, \forall x\in U;\\ 
+        \label{condition4. 3}
+        &\lim\limits_{x\rightarrow \infty}\frac{f^{'}(x)}{g^{'}(x)}=l\quad \text{($l$为有限数或$\pm\infty$)}
+    \end{align}
+    则有
+    \begin{equation}\label{conclusion4}
+        \lim_{x\rightarrow \infty}\frac{f(x)}{g(x)}=\lim_{x\rightarrow \infty}\frac{f^{'}(x)}{g^{'}(x)}=l.
+    \end{equation}
+\end{theorem}
+\section{证明}
+\subsection{定理\ref{theorem1}的证明}
+此处考虑$l$为有限数的情形, 先证$\lim\limits_{x\rightarrow a-0}\frac{f(x)}{g(x)}=l$.
+\par 由条件(\ref{condition1. 1})可知, 若补充定义$f(a)=g(a)=0$, 则$f(x), g(x)$在$a$点连续. 于是, 对$\forall x\in(a-\delta, a), $在区间$[x, a]$上应用柯西微分中值定理, 有
+\begin{equation}\label{eq1. 1}
+    \frac{f(x)}{g(x)}=\frac{f(x)-f(a)}{g(x)-g(a)}=\frac{f^{'}(\xi)}{g^{'}(\xi)}, \quad x<\xi<a.
+\end{equation}
+又由条件(\ref{condition1. 3}), 可得
+\begin{equation}\label{eq1. 2}
+    \lim\limits_{x\rightarrow a-0}\frac{f^{'}(\xi)}{g^{'}(\xi)}=\lim\limits_{x\rightarrow a-0}\frac{f^{'}(x)}{g^{'}(x)}=l.
+\end{equation}
+所以
+\begin{equation}\label{eq1. 3}
+    \lim\limits_{x\rightarrow a-0}\frac{f(x)}{g(x)}=l. 
+\end{equation}
+\par 同理可证$\lim\limits_{x\rightarrow a+0}\frac{f(x)}{g(x)}=l. $故由(\ref{eq1. 2})(\ref{eq1. 3})可知(\ref{conclusion1})成立.
+\subsection{定理\ref{theorem2}的证明}
+先证$x\rightarrow +\infty$的情形. 作自变量变换$x=\frac{1}{t}$, 则$x\rightarrow +\infty$对应$t\rightarrow 0+0$. 于是有
+\begin{equation}\label{eq2. 1}
+    \lim_{t\rightarrow 0+0}\frac{f^{'}(\frac{1}{t})}{g^{'}(\frac{1}{t})}=\lim_{x\rightarrow +\infty}\frac{f^{'}(x)}{g^{'}(x)}, 
+\end{equation}
+并且由条件(\ref{condition2. 1}), 有
+\begin{equation}\label{eq2. 2}
+    \lim_{t\rightarrow 0+0}f(\frac{1}{t})=0, \quad\lim_{t\rightarrow 0+0}g(\frac{1}{t})=0.
+\end{equation}
+应用定理(\ref{theorem1})于开区间$(0, \frac{1}{a})$上新变量$t$的函数$f(\frac{1}{t})$和$g(\frac{1}{t})$, 并注意到它们关于$t$的导数为
+\begin{equation}\label{eq2. 3}
+    f^{'}(\frac{1}{t})(-\frac{1}{t^2}), \quad g^{'}(\frac{1}{t})(-\frac{1}{t^2}), 
+\end{equation}
+可得
+\begin{equation}\label{eq2. 4}
+    \lim_{t\rightarrow 0+0}\frac{f(\frac{1}{t})}{g(\frac{1}{t})}=\lim_{t\rightarrow 0+0}\frac{f^{'}(\frac{1}{t})(-\frac{1}{t^2})}{g^{'}(\frac{1}{t})(-\frac{1}{t^2})}=\lim_{t\rightarrow 0+0}\frac{f^{'}(\frac{1}{t})}{g^{'}(\frac{1}{t})}=\lim_{x\rightarrow +\infty}\frac{f^{'}(x)}{g^{'}(x)}=l.
+\end{equation}
+因此, 我们得到
+\begin{equation}\label{eq2. 5}
+    \lim_{x\rightarrow +\infty}\frac{f(x)}{g(x)}=l.
+\end{equation}
+\par 同理可证$x\rightarrow -\infty$的情形. 故可证得(\ref{conclusion2})成立.
+\subsection{定理\ref{theorem3}的证明}
+此处考虑$l$为有限值的情形. 先证$x\rightarrow a-0$的情形.
+\par$\forall\epsilon>0$, 由条件(\ref{condition3. 2})和(\ref{condition3. 3})可知, $\exists \delta_1>0, 0<\delta_1<\delta_0$, 当$a-\delta_1<\zeta<a$时, 有
+\begin{equation}\label{eq3. 1}
+    |\frac{f^{'}(\zeta)}{g^{'}(\zeta)}-l|<\frac{\epsilon}{3}.
+\end{equation}
+对已经取定的$\delta_1$及$x\in (a-\delta_1, a)$, 在$[a-\delta_1, x]$上应用柯西微分中值定理, $\exists \xi\in[a-\delta_1, x]$, 使得
+\begin{equation}\label{eq3. 2}
+    \frac{f(x)-f(x_1)}{g(x)-g(x_1)}-l=\frac{f^{'}(\xi)}{g^{'}(\xi)}-l, 
+\end{equation}
+此处$x_1=a-\delta_1, \xi\in(a-\delta_1, a)$. 上式可化为
+\begin{equation}\label{eq3. 3}
+    f(x)-f(x_1)-l[g(x)-g(x_1)]=[\frac{f^{'}(\xi)}{g^{'}(\xi)}-l][g(x)-g(x_1)], 
+\end{equation}
+整理可得
+\begin{equation}\label{eq3. 4}
+    f(x)-lg(x)=[f(x_1)-lg(x_1)]+[\frac{f^{'}(\xi)}{g^{'}(\xi)}-l][g(x)-g(x_1)].
+\end{equation}
+在上式两边同除以$g(x)$, 得到
+\begin{equation}\label{eq3. 5}
+    \frac{f(x)}{g(x)}-l=[\frac{f^{'}(\xi)}{g^{'}(\xi)}-l][1-\frac{g(x_1)}{g(x)}]+\frac{f(x_1)-lg(x_1)}{g(x)}.
+\end{equation}
+再根据条件($\ref{condition3. 1})$, 对固定的$x_1$, 有
+\begin{equation}\label{eq3. 6}
+    \lim_{x\rightarrow a-0}\frac{f(x_1)-lg(x_1)}{g(x)}=0, \quad\lim_{x\rightarrow a-0}\frac{g(x_1)}{g(x)}=0.
+\end{equation}
+所以$\exists \delta_2(0<\delta_2<\delta_1)$, 使得当$a-\delta_2<x<a$时, 有
+\begin{equation}\label{eq3. 7}
+    |\frac{f(x_1)-lg(x_1)}{g(x)}|<\frac{\epsilon}{2}, \quad|\frac{g(x_1)}{g(x)}|<\frac{1}{2}.
+\end{equation}
+令$\delta=\min\{\delta_1, \delta_2\}$, 则当$a-\delta<x<a$时, 有
+\begin{equation}
+    |\frac{f(x)}{g(x)}-l|\leq|\frac{f^{'}(\xi)}{g^{\xi}}-l||1-\frac{g(x_1)}{g(x)}|+|\frac{f(x_1)-lg(x_1)}{g(x)}|\leq \frac{3}{2}\cdot\frac{\epsilon}{3}+\frac{\epsilon}{2}=\epsilon. 
+\end{equation}
+因此$\lim\limits_{x\rightarrow a-0}\frac{f(x)}{g(x)}=l$.
+\par 同理可证得$x\rightarrow a+0$情形成立, 故有(\ref{conclusion3})成立.
+\subsection{定理\ref{theorem4}的证明}
+先证$x\rightarrow +\infty$的情形. 作自变量变换$x=\frac{1}{t}$, 则$x\rightarrow +\infty$对应于$t\rightarrow 0+0$. 于是有
+\begin{equation}\label{eq4. 1}
+    \lim_{t\rightarrow 0+0}\frac{f^{'}(\frac{1}{t})}{g^{'}(\frac{1}{t})}=\lim_{x\rightarrow +\infty}\frac{f^{'}(x)}{g^{'}(x)}, 
+\end{equation}
+并且由条件(\ref{condition4. 1}), 有
+\begin{equation}\label{eq4. 2}
+    \lim_{t\rightarrow 0+0}g(\frac{1}{t})=\infty.
+\end{equation}
+应用定理(\ref{theorem3})于开区间$(0, \frac{1}{a})$上新变量$t$的函数$f(\frac{1}{t})$和$g(\frac{1}{t})$, 并注意到它们关于$t$的导数为
+\begin{equation}\label{eq4. 3}
+    f^{'}(\frac{1}{t})(-\frac{1}{t^2}), \quad g^{'}(\frac{1}{t})(-\frac{1}{t^2}), 
+\end{equation}
+可得
+\begin{equation}\label{eq4. 4}
+    \lim_{t\rightarrow 0+0}\frac{f(\frac{1}{t})}{g(\frac{1}{t})}=\lim_{t\rightarrow 0+0}\frac{f^{'}(\frac{1}{t})(-\frac{1}{t^2})}{g^{'}(\frac{1}{t})(-\frac{1}{t^2})}=\lim_{t\rightarrow 0+0}\frac{f^{'}(\frac{1}{t})}{g^{'}(\frac{1}{t})}=\lim_{x\rightarrow +\infty}\frac{f^{'}(x)}{g^{'}(x)}=l.
+\end{equation}
+因此, 我们得到
+\begin{equation}\label{eq4. 5}
+    \lim_{x\rightarrow +\infty}\frac{f(x)}{g(x)}=l.
+\end{equation}
+\par 同理可证$x\rightarrow -\infty$的情形. 故可证得(\ref{conclusion4})成立.
+\end{document}

@@ -1,0 +1,70 @@
+\documentclass{ctexart}
+\usepackage{amsmath, amsthm}
+\pagestyle{plain}
+\title{作业二: 函数}
+\author{余明壕\\统计学 3190103127}
+\begin{document}
+\maketitle
+选取的 Try it out 在书中的第48页，涉及函数、循环以及条件判断，实现功能为展示输入姓名，并询问所填名字是否正确并给出相应的回答。的现对代码进行展示：
+\begin{verbatim}
+#!/bin/bash
+
+# function
+yes_or_no(){
+    echo "Is your name $* ?"
+    while true
+    do
+        echo -n "Enter yes or not: "
+        read x
+        case "$x" in
+            [yY] | [Yy][Ee][Ss] ) return 0;;
+            [nN] | [nN][oO] )     return 1;;
+            * )                   echo "Please answer yes or no."
+        esac
+    done
+}
+
+# main
+echo "Original parameters are $*."
+
+if yes_or_no "$1"
+then
+    echo "Hi $1, nice name."
+else
+    echo "Never mind."
+fi
+exit 0
+\end{verbatim}
+\section{代码分析}
+代码分为两部分，函数与主体。
+\subsection{函数}
+函数部分主要通过 \verb|while| 循环与 \verb|case| 条件判断来实现。通过 \verb|echo| 与用户进行交互，设置 \verb|while| 的值恒为 \verb|true| 再通过 \verb|case| 的条件判断，使得用户不输入 
+ \verb|yes| 或者 \verb|no| 将一直处于循环之中。
+\subsection{主体}
+主体部分则是调用函数 \verb|yes_or_no| 获取返回值，再通过 \verb|if| 条件判断进行相应的输出。
+\section{运行结果}
+首先通过 \verb|cd| 命令设置当前路径为shell脚本文件所在位置，之后输入
+\begin{verbatim}
+./my_name parameters
+\end{verbatim}
+运行程序。此处将 \verb|parameters| 取值为 \verb|Mark Yu|。测试结果如下：
+\begin{verbatim}
+# test1
+Original parameters are Mark Yu.
+Is your name Mark ?
+Enter yes or not: ne
+Please answer yes or no.
+Enter yes or not: yo          
+Please answer yes or no.
+Enter yes or not: N
+Never mind.
+# test2
+Original parameters are Mark Yu.
+Is your name Mark ?
+Enter yes or not: YeS
+Hi Mark, nice name.
+\end{verbatim}
+\section{体会与感想}
+代码理解和实现上来说并不困难，但是完成过程中仍给我造成了些麻烦，比如将 \verb|true| 打成了 \verb|True| 导致报错，并且在代码修改后没有重新编译导致错误一直存在，程序无法运行。不过我也因此学到了，
+需要重视大小写以及编译。除此之外，通过代码的编写，我了解到了 \verb|case| 的多条件设置，读取参数的不同方式以及利用好循环体实现多次读取的操作。
+\end{document}
